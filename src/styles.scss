@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+footer {
+  background-color: #000000;
+  color: #FFFFFF;
+  height: 8vh;
+}
+
+// to prevent the default eye icon appearance in microsoft edge
+.pswd-ext-prevent {
+
+  &::-ms-reveal,
+  &::-ms-clear {
+    display: none;
+  }
+}

@@ -1,0 +1,38 @@
+<!-- <div>Full component</div> -->
+
+<div autosize autofocus
+    [ngClass]="{ 'sidebarNav-mini': options.sidenavCollapsed && options.navPos !== 'top', 'sidebarNav-horizontal': options.horizontal, cardBorder: options.cardBorder }"
+    [class]="options.activeTheme" [dir]="options.dir">
+    <ng-container *ngIf="options.horizontal">
+        <!-- horizontal header -->
+        <app-horizontal-header [userDetail]="usrDet" (toggleMobileNav)="sidenav.toggle()">
+            <app-horizontal-sidebar></app-horizontal-sidebar>
+        </app-horizontal-header>
+    </ng-container>
+
+    <mat-sidenav-container class="mainWrapper">
+        <mat-sidenav #leftsidenav [mode]="isOver ? 'over' : 'side'"
+            [opened]="options.navPos === 'side' && options.sidenavOpened && !isOver && !options.horizontal"
+            (openedChange)="onSidenavOpenedChange($event)" (closedStart)="onSidenavClosedStart()" class="sidebarNav">
+            <app-sidebar></app-sidebar>
+            <ng-scrollbar class="position-relative mini-scroll" style="height: calc(100vh - 230px)">
+                <mat-nav-list class="sidebar-list">
+                    <app-vertical-nav-item *ngFor="let item of navItems" [item]="item" (notify)="sidenav.toggle()"></app-vertical-nav-item>
+                </mat-nav-list>
+            </ng-scrollbar>
+        </mat-sidenav>
+
+        <mat-sidenav-content class="contentWrapper">
+            <!-- <app-horizontal-sidebar></app-horizontal-sidebar> -->
+
+            <main class="pageWrapper" [ngClass]="{ maxWidth: options.boxed }">
+                <app-breadcrumb></app-breadcrumb>
+                <router-outlet></router-outlet>
+            </main>
+
+            <!-- <footer></footer> -->
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+</div>

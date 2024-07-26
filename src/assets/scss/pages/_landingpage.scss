@@ -1,0 +1,28 @@
+.container {
+    max-width: 1200px;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 0 auto;
+
+    &.full-width {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+.hstack {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+@media (max-width: 767px) {
+    .hstack {
+        flex-direction: column;
+    }
+
+    .bg-size-cover {
+        background-size: cover;
+    }
+}

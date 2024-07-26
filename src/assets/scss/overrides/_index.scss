@@ -1,0 +1,8 @@
+.light-theme .blue_theme, .dark-theme {
+  @import "./drawer";
+}
+
+.light-theme,
+.dark-theme {
+  @import "./typography";
+}
