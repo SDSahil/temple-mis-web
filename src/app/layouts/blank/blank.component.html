@@ -1,0 +1,19 @@
+<!-- ============================================================== -->
+<!-- Only router without any element -->
+<!-- ============================================================== -->
+<mat-sidenav-container [ngClass]="{ 'cardBorder': options.cardBorder }" [class]="options.activeTheme"
+    [dir]="options.dir">
+    <ng-container *ngIf="!errorState; else errorTemplate">
+        <div class="blank-layout-container justify-content-center">
+            <div class="position-relative row w-100 h-100">
+                <div class="col-lg-5 col-xl-8 p-0"
+                    style="background-image: url(assets/images/backgrounds/sideImage.png); background-size: cover;"></div>
+                <div class="col-lg-7 col-xl-4 p-0">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-template #errorTemplate><router-outlet></router-outlet></ng-template>
+</mat-sidenav-container>
